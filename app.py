@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
+from healthcheck import HealthCheck
 
 app = Flask(__name__)
+health = HealthCheck(app, "/healthcheck")
 
 myapplication = [
     {
@@ -17,6 +19,11 @@ def get_tasks():
 @app.route('/')
 def hello_world():
     return "Hello World"
+
+def app_available():
+    return "A-OK."
+
+health.add_check(app_available)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
