@@ -31,7 +31,7 @@ pipeline {
                     cd myob
                     tar -zxvf ../myob_test.tar.gz
                     cd app
-                    nohup ./app.py &
+                    nohup ./app.py \&
                 """
             }
         }
