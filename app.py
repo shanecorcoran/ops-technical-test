@@ -21,7 +21,7 @@ def hello_world():
     return "Hello World"
 
 def app_available():
-    return "A-OK."
+    return True, "A-OK."
 
 health.add_check(app_available)
 
