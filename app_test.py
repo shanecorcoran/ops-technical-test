@@ -22,4 +22,4 @@ class TestFlaskApi(unittest.TestCase):
         app.items = self.backup_items
 
 if __name__ == "__main__":
-unittest.main()
+    unittest.main()
