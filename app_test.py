@@ -17,11 +17,13 @@ class TestFlaskApi(unittest.TestCase):
         response = self.app.get(BASE_URL)
         data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(data['myapplication']), 1)
 
     def test_get_healthcheck(self):
         response = self.app.get(HEALTHCHECK_URL)
         data = json.loads(response.get_data())
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(data['myapplication']), 1)
 
     def tearDown(self):
         # reset app.items to initial state
