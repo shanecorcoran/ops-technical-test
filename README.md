@@ -3,8 +3,8 @@ MYOB Pre Interview Test - README
 This is a test Hello World application written in Python using the Flask framework.
 The application has the following endpoints:
    1. Root (/) - This is the root URL which will return the text "Hello World".
-   2. myapplication - This endpoint returns some metadata about the application.
-   3. healthcheck - This endpoint does a status check of the root url.
+   2. myapplication (/todo/api/v1.0/myapplication) - This endpoint returns some metadata about the application. Uses api versions.
+   3. healthcheck (/healthcheck) - This endpoint does a status check of the root url.
 
 The deployment code is stored in Github Repo > jenkins > deploy_job > Jenkinsfile.
 
@@ -31,3 +31,14 @@ If any of the URLs does not return 200 response then the Job will fail.
    https://13.55.189.176/job/MYOB/job/3_MYOB_stop_hello_world/
 
 This is a simple one line bash command to kill the python process running the application in the background.
+
+Once code has been deployed, check the following URLs to see the responses:
+http://13.55.189.176:5000/
+http://13.55.189.176:5000/todo/api/v1.0/myapplication
+http://13.55.189.176:5000/healthcheck
+
+
+NOTES
+=====
+1. The python application currently does not support SSL.
+2. Port 5000 does not yet get Port 80 traffic as this is currently configured for Jenkins.
