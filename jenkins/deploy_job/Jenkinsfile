@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    parameters{
+        choice(name: "BRANCH",
+            choices: "\nmaster")
+        choice(name: "ACTION",
+            choices: "\ndeploy")
+    }
+
+    stages {
+        stage ("Github checkout") {
+            steps {
+                git branch: "${params.BRANCH}", url: "https://github.com/kunalnanda/ops-technical-test.git", credentialsId: "73d9b05d-84a7-4622-bd32-8738b59bb858"
+            }
+        }
+        stage ("Stage 1 - Install python") {
+            steps {
+                sh """
+                    sudo yum install python -y
+                """
+            }
+        }
+
+        stage ("Stage 2 - Deploy application") {
+            when {
+                expression { params.ACTION == "deploy" }
+            }
+            steps {
+                sh """
+                    python setup.py install
+                """
+            }
+        }
+    }
+}
