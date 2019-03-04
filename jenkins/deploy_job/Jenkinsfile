@@ -29,7 +29,7 @@ pipeline {
                 sh """
                     mkdir myob
                     cd myob
-                    tar -zxvf myob_test.tar.gz
+                    tar -zxvf ../myob_test.tar.gz
                     cd app
                     nohup ./app.py &
                 """
