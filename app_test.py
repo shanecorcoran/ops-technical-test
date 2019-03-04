@@ -4,7 +4,7 @@ import json
 
 import app
 
-BASE_URL = 'http://127.0.0.1:5000/'
+BASE_URL = 'http://127.0.0.1:5000/todo/api/v1.0/myapplication'
 
 class TestFlaskApi(unittest.TestCase):
     def setUp(self):
