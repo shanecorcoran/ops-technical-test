@@ -16,7 +16,11 @@ pipeline {
         stage ("Stage 1 - Install python") {
             steps {
                 sh """
-                    sudo yum install python -y
+                    sudo yum install python python-pip -y
+                    pip install --upgrade pip
+                    pip install Flask
+                    pip install flask-restful
+                    pip install healthcheck
                 """
             }
         }
