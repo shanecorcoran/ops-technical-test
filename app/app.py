@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.7
+
 from flask import Flask, jsonify
 from healthcheck import HealthCheck
 

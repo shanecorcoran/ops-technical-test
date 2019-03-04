@@ -27,7 +27,11 @@ pipeline {
             }
             steps {
                 sh """
-                    python setup.py install
+                    mkdir myob
+                    cd myob
+                    tar -zxvf myob_test.tar.gz
+                    cd app
+                    nohup ./app.py &
                 """
             }
         }
