@@ -1,35 +1,17 @@
-# Platform Enablement Technical Test
+MYOB Pre Interview Test - README
 
-We would like you to write an application in a language of your choice
-which covers a few points of interest. It will be evaluated holistically,
-so take this as an opportunity to show the breadth of your skills or knowledge.
+This is a test Hello World application written in Python using the Flask framework.
+The application has the following endpoints:
+   1. Root (/) - This is the root URL which will return the text "Hello World".
+   2. myapplication - This endpoint returns some metadata about the application.
+   3. healtcheck - This endpoint does a status check of the root url.
 
-## Application Details
+The Application also has a couple of Unit tests.
 
-Your application should be a simple, small, operable web-style API or service
-provider. It should implement the following:
+Deployment is done via Jenkins job from the following URL:
+https://13.239.146.81/job/MYOB/job/hello_world_deploy_pipeline/
 
-- a simple root endpoint which responds in a simple manner; "hello world" or some such
-- a health endpoint which returns an appropriate response code
-- a metadata endpoint which returns basic information about your application; example:
+Unit Tests can be run from the following URL:
+https://13.239.146.81/job/MYOB/job/unit_test/
 
-```json
-"myapplication": [
-  {
-    "version": "1.0",
-    "description" : "pre-interview technical test",
-    "lastcommitsha": "abc57858585"
-  }
-]
-```
-
-- tests or a test suite; the type of testing is up to you
-
-## Fit and Finish
-
-Once the application has been written, continue with the following additions:
-
-- provide a means of packaging your application as a single deployable artifact which encapsulates its dependencies
-- create a pipeline that builds your application on each commit; Travis or similar, for example
-- describe or demonstrate any risks associated with your application/deployment
-- write a clear and understandable `README` which explains your application and its deployment steps
+The deployment code is stored in Github Repo > jenkins > deploy_job > Jenkinsfile.
