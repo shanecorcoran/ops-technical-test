@@ -26,6 +26,8 @@ def hello_world():
 def return_resume:
     try:
         return send_file('/resume.docx', attachment_filename='resume.docx')
+    except Exception as e:
+		return str(e)
 
 def app_available():
     return True, "A-OK."
