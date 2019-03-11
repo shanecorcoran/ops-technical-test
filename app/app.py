@@ -32,7 +32,7 @@ def return_file():
     try:
         return send_file(path)
     except Exception as e:
-	    return str(e)
+	    return str("Error with the send_file function" & e)
 
 def app_available():
     return True, "A-OK."
