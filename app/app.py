@@ -27,7 +27,7 @@ def get_tasks():
 def hello_world():
     return "Hello World"
 
-@app.route('/resume')
+@app.route('/download')
 def return_file():
     try:
         return send_file(path)
