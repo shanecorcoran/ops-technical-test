@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
 import os
+import logging
 from flask import Flask, jsonify, send_file
 from healthcheck import HealthCheck
 
@@ -18,6 +19,8 @@ myapplication = [
 UPLOAD_DIRECTORY = "/var/lib/jenkins/workspace/MYOB/1_MYOB_hello_world_deploy_pipeline/app"
 filename = "resume.docx"
 path = os.path.join(UPLOAD_DIRECTORY, filename)
+
+logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
 @app.route('/todo/api/v1.0/myapplication', methods=['GET'])
 def get_tasks():
