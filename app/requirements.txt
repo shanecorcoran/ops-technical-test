@@ -8,11 +8,6 @@ jsonpointer==1.9
 kitchen==1.1.1
 lxml==3.2.1
 M2Crypto==0.21.1
-Magic-file-extensions==0.2
-MarkupSafe==1.1.1
-mock==1.0.1
-ndg-httpsclient==0.3.2
-pparamiko==2.1.1
 parsedatetime==2.4
 pciutils==1.7.3
 perf==0.1
