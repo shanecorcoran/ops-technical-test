@@ -48,9 +48,6 @@ pipeline {
             steps {
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                     sh """
-                        mkdir myob
-                        cd myob
-                        tar -zxvf ../myob_test.tar.gz
                         cd app
                         nohup ./app.py &
                     """
