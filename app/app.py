@@ -34,8 +34,8 @@ def hello_world():
 @app.route('/download/', methods=['GET'])
 def return_file():
     try:
-        #return send_file(path)
-        return path
+        return send_file(path)
+        #return path
     except Exception as e:
 	    return str("Error with the send_file function" & e)
 
