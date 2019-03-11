@@ -16,7 +16,7 @@ myapplication = [
     }
 ]
 
-UPLOAD_DIRECTORY = "/app"
+UPLOAD_DIRECTORY = "/var/lib/jenkins/workspace/MYOB/1_MYOB_hello_world_deploy_pipeline/app"
 filename = "resume.docx"
 path = os.path.join(UPLOAD_DIRECTORY, filename)
 log_file = os.path.join(UPLOAD_DIRECTORY, 'example.log')
