@@ -29,7 +29,7 @@ pipeline {
             steps {
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                     sh """
-                        kill $(ps aux | grep '[p]ython2.7 ./app.py' | awk '{print \$2}')
+                        kill \$(ps aux | grep '[p]ython2.7 ./app.py' | awk '{print \$2}')
                     """
                 }
             }
