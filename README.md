@@ -35,8 +35,17 @@ http://13.55.189.176:5000/
 http://13.55.189.176:5000/todo/api/v1.0/myapplication
 http://13.55.189.176:5000/healthcheck
 
+**4_Docker_Deploy** [Deploy to Docker](https://13.55.189.176/job/MYOB/job/4_Docker_Deploy/)
+
+This job will instead deploy the application to a docker container. The job performs the following activities:
+- Uses a Dockerfile to build an "myob_image" docker image.
+- Uses a requirements.txt file to install python dependencies.
+- Checks docker running container. Stops and removes all existing containers using myob_image docker image.
+- Starts a container and ensures python default port 5000 is routed to the container.
+
 
 # NOTES
 
 * The python application currently does not support SSL.
 * Port 5000 does not yet get Port 80 traffic as this is currently configured for Jenkins.
+* Dockerfile is a very basic and can be improved to use Multistage and/or caching to reduce size of the image.
