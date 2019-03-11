@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_file
 from healthcheck import HealthCheck
 
 app = Flask(__name__)
@@ -21,6 +21,11 @@ def get_tasks():
 @app.route('/')
 def hello_world():
     return "Hello World"
+
+@app.route('/resume')
+def return_resume:
+    try:
+        return send_file('resume.docx', attachment_filename='resume.docx')
 
 def app_available():
     return True, "A-OK."
