@@ -25,7 +25,17 @@ pipeline {
             }
         }
 
-        stage ("Stage 2 - Deploy application") {
+        stage ("Stage 2 - Stop any previous running application") {
+            steps {
+                withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                    sh """
+                        kill $(ps aux | grep '[p]ython2.7 ./app.py' | awk '{print $2}')
+                    """
+                }
+            }
+        }
+
+        stage ("Stage 3 - Deploy application") {
             when {
                 expression { params.ACTION == "deploy" }
             }
