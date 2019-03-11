@@ -28,7 +28,7 @@ def get_tasks():
 
 @app.route('/')
 def hello_world():
-    return "Hello World"
+    return "Hello MYOB."
 
 @app.route('/download/', methods=['GET'])
 def return_file():
