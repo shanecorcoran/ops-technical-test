@@ -25,7 +25,7 @@ def hello_world():
 @app.route('/resume')
 def return_resume:
     try:
-        return send_file('resume.docx', attachment_filename='resume.docx')
+        return send_file('/resume.docx', attachment_filename='resume.docx')
 
 def app_available():
     return True, "A-OK."
