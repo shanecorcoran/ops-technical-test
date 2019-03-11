@@ -2,7 +2,7 @@
 
 import os
 import logging
-from flask import Flask, jsonify, send_file
+from flask import Flask, jsonify, send_file, url_for
 from healthcheck import HealthCheck
 
 app = Flask(__name__)
@@ -29,7 +29,8 @@ def get_tasks():
 
 @app.route('/')
 def hello_world():
-    return "Hello MYOB."
+    dowload_url = url_for('download')
+    return "Hello <strong>MYOB</strong>.<br>Download my resume from <a href=" & download_url & ">here</a>."
 
 @app.route('/download/', methods=['GET'])
 def return_file():
