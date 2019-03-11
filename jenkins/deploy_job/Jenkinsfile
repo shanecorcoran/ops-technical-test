@@ -25,19 +25,19 @@ pipeline {
             }
         }
 
-        stage ("Stage 2 - Stop any previous running application") {
-            steps {
-                withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                    try {
+        try {
+            stage ("Stage 2 - Stop any previous running application") {
+                steps {
+                    withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                         sh """
                             set +e
                             kill \$(ps aux | grep '[p]ython2.7 ./app.py' | awk '{print \$2}')
                         """
-                    } catch (err) {
-                        echo "kill failed as application not running"
-                    }
-                }   
+                    }    
+                }
             }
+        } catch (err) {                
+            echo "kill failed as application not running"
         }
 
         stage ("Stage 3 - Deploy application") {
