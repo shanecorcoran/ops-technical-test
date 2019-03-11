@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
-from flask import Flask, jsonify, send_file
+import os
+from flask import Flask, jsonify, send_from_directory
 from healthcheck import HealthCheck
 
 app = Flask(__name__)
@@ -14,6 +15,10 @@ myapplication = [
     }
 ]
 
+UPLOAD_DIRECTORY = "/var/lib/jenkins/workspace/MYOB/1_MYOB_hello_world_deploy_pipeline/app"
+filename = "resume.docx"
+path = os.path.join(UPLOAD_DIRECTORY, filename)
+
 @app.route('/todo/api/v1.0/myapplication', methods=['GET'])
 def get_tasks():
     return jsonify({'myapplication': myapplication})
@@ -23,11 +28,11 @@ def hello_world():
     return "Hello World"
 
 @app.route('/resume')
-def return_resume:
+def return_file():
     try:
-        return send_file('/var/lib/jenkins/workspace/MYOB/1_MYOB_hello_world_deploy_pipeline/app/resume.docx', attachment_filename='resume.docx')
+        return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
     except Exception as e:
-		return str(e)
+	    return str(e)
 
 def app_available():
     return True, "A-OK."
