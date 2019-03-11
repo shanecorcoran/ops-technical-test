@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 
 import os
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_file
 from healthcheck import HealthCheck
 
 app = Flask(__name__)
@@ -30,7 +30,7 @@ def hello_world():
 @app.route('/resume')
 def return_file():
     try:
-        return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
+        return send_file(path)
     except Exception as e:
 	    return str(e)
 
