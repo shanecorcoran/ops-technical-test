@@ -34,7 +34,7 @@ def hello_world():
     
     return_message = "Hello <strong>MYOB</strong>.<br>"
     return_message = return_message + "Download my resume from <a href=" + str(download_url) + ">here</a>.<br>"
-    return_message = return_message + "Application Info URL - <a href=" + str(app_info_url) + ">here</a>."
+    return_message = return_message + "Application Info URL - <a href=" + str(app_info_url) + ">here</a>.<br>"
     return_message = return_message + "Healthcheck URL - <a href=http://13.55.189.176:5000/healthcheck>here</a>."
 
     return return_message
