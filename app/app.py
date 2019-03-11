@@ -25,7 +25,7 @@ def hello_world():
 @app.route('/resume')
 def return_resume:
     try:
-        return send_file('/resume.docx', attachment_filename='resume.docx')
+        return send_file('/var/lib/jenkins/workspace/MYOB/1_MYOB_hello_world_deploy_pipeline/app/resume.docx', attachment_filename='resume.docx')
     except Exception as e:
 		return str(e)
 
