@@ -3,9 +3,10 @@
 This is a test Hello World application written in Python using the Flask framework.
 The application has the following endpoints:
 
-* **Root (/)** - This is the root URL which will return the text "Hello World".
+* **Root (/)** - This is the root URL.
 * **myapplication (/todo/api/v1.0/myapplication)** - This endpoint returns some metadata about the application. Uses api versions.
 * **Healthcheck (/healthcheck)** - This endpoint does a status check of the root url.
+* **Download (/download)** - This endpoint will prompt to download my Resume as a docx file.
 
 The deployment code is stored in Github Repo > jenkins > deploy_job > Jenkinsfile.
 
