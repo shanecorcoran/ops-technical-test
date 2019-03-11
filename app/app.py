@@ -30,7 +30,7 @@ def get_tasks():
 @app.route('/')
 def hello_world():
     download_url = url_for('return_file')
-    return "Hello <strong>MYOB</strong>.<br>Download my resume from <a href=" & download_url & ">here</a>."
+    return "Hello <strong>MYOB</strong>.<br>Download my resume from <a href=" + str(download_url) + ">here</a>."
 
 @app.route('/download/', methods=['GET'])
 def return_file():
