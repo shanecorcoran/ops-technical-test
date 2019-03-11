@@ -29,6 +29,7 @@ pipeline {
             steps {
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                     sh """
+                        set +e
                         kill \$(ps aux | grep '[p]ython2.7 ./app.py' | awk '{print \$2}')
                     """
                 }
@@ -42,9 +43,11 @@ pipeline {
             steps {
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                     sh """
+                        set +e
                         mkdir myob
                         cd myob
                         tar -zxvf ../myob_test.tar.gz
+                        set -e
                         cd app
                         nohup ./app.py &
                     """
